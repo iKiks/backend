@@ -12,10 +12,9 @@ def send_reset_email_task(email, reset_link):
         
         send_mail(
             subject,
-            "",
+            strip_tags(html_message),
             settings.EMAIL_HOST,
             [email],
-            html_message=html_message
         )
     except Exception as e:
         print("Error sending email: ", e)
